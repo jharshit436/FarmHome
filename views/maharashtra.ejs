@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['table']});
+      google.charts.setOnLoadCallback(drawTable);
+
+      function drawTable() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'Warehouse');
+        data.addColumn('number', 'Total Capacity');
+        data.addColumn('number', 'Occupied Capacity');
+        data.addColumn('boolean', 'Available Capacity');
+        data.addColumn('string', 'Location');
+        data.addRows([
+          [1,  400, 300, true, 'Thane'],
+          [2,  260, 260, false, 'Solapur'],
+          [3,  547, 346, true, 'Wardha'],
+          [4,  324, 126,  true, 'Washim']
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Statistics About Maharashtra Warehouses</h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Maharashtra Statistics</li>
+        </ol>
+      </nav>
+    <div id="table_div"></div>
+    <br><br>
+  </body>
+</html>
